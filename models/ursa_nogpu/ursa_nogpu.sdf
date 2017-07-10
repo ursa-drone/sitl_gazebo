@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<sdf version='1.5'>
+  <model name='ursa'>
+
+    <include>
+      <uri>model://erlecopter</uri>
+    </include> 
+
+    <include>
+      <uri>model://lidar</uri>
+      <pose>-0.12 0 0 0 3.1415 0</pose>
+    </include>
+    <joint name="lidar_joint" type="fixed">
+      <child>lidar::link</child>
+      <parent>erlecopter::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+
+    <include>
+      <uri>model://ursa_hokuyo_nogpu</uri>
+      <pose>0 0 0.1 0 0 0</pose>
+    </include>
+    <joint name="hokuyo_joint" type="revolute">
+      <child>hokuyo::link</child>
+      <parent>erlecopter::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+
+  </model>
+</sdf>
+<!-- vim: set noet fenc=utf-8 ff=unix sts=0 sw=4 ts=4 : -->
+
