@@ -2,17 +2,44 @@
 <gazebo version="1.2">
   <model name="hokuyo">
     <link name="link">
-      <gravity>false</gravity>
       <inertial>
-        <mass>0.1</mass>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.16</mass>
+        <inertia>
+          <ixx>4.15e-6</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.407e-6</iyy>
+          <iyz>0</iyz>
+          <izz>2.407e-6</izz>
+        </inertia>
       </inertial>
+
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://ursa_hokuyo/meshes/hokuyo.dae</uri>
+            <uri>model://ursa_hokuyo_nogpu/meshes/hokuyo.dae</uri>
           </mesh>
         </geometry>
       </visual>
+      <collision name="collision-base">
+        <pose>0 0 -0.0145 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.041</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision-top">
+        <pose>0 0 0.0205 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.021</radius>
+            <length>0.029</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
       <sensor name="head_hokuyo_sensor" type="ray">
         <pose>0 0 0 0 0 0</pose>
         <ray>
