@@ -46,6 +46,7 @@
         </ray>
      <plugin name="RangePlugin" filename="libgazebo_ros_range.so">
           <frameName>lidar_link</frameName>
+          <topicName>/mavros/distance_sensor/sonar_sensor</topicName>
       </plugin>
 		<robotNamespace></robotNamespace>
         <always_on>1</always_on>
